@@ -12,12 +12,18 @@ function writePassword() {
 
 // Generate password with specified criteria
 function generatePassword() {
+  var password = [];
+  var charactersSatisfied;
 // specify the length of password
-  var passwordLength = speicfyTheLength();
+  // password.length = speicfyTheLength();
+  password.length = prompt("enter a number to specify the length of the password");
 // specify the possible characters can be used
-  var charactersSatisfied = generateCharactersSatisfied();
+  // charactersSatisfied = generateCharactersSatisfied();
 // generate the password of certain length with charactersSatisfied and return it
-  return "123253";
+  for (var i = 0; i < password.length; i++) {
+    password[i] = "a";
+  }
+  return password.join('');
 }
 
 // specify the length of password
