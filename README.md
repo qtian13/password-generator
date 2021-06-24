@@ -4,6 +4,7 @@ This project is to create an attractive and functional password generator applic
 ## Getting Started
 ```console
 git clone https://github.com/qtian13/password-generator.git
+```
 
 ## Built With
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
