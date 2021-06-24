@@ -11,21 +11,18 @@ git clone https://github.com/qtian13/password-generator.git
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
 ## Description of the Password Generator
-1. There is a text block to display password generated and 4 functional buttons: `Generate Password` , `Copy`, `More` and `Reset`.
+1. There is a read only text area to display password generated and 4 functional buttons: `Generate Password` , `Copy`, `More` and `Reset`.
 1. When `Generate Password` is clicked, users start to answer a series of prompted questions about their preference and a password matching the selected criteria would be generated and displayed on the page.
     * Users have to choose an integer between 8 to 128 inclusive before the next step
     * Users can select one or more characters type from: upper case alphabets, lower case alphabets, numeric characters and special characters
     * Special characters are referenced to [Password Special Characters | OWASP](https://www.owasp.org/index.php/Password_special_characters)
 1. The password generated would be copied to clipboard with a click on `Copy`.
-1. By clicking `More`, users will get another password with the same criteria displayed on the web
+1. By clicking `More`, users will get another password with the same criteria displayed on the web.
 1. Users can clear the recorded preference and the displayed password with `Reset`.
 1. The user interface is screen size responsive
 
 ## Page URL
 https://qtian13.github.io/password-generator/
-
-## Web page domo
-![password generator demo](assets/images/password_generator_demo.mv)
 
 ## Page Screen Shot with Different Screen Width
 ![fit desktop screen](assets/images/desktop_screen.png)
