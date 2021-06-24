@@ -15,8 +15,7 @@ function generatePassword() {
   var password = [];
   var charactersSatisfied;
 // specify the length of password
-  // password.length = speicfyTheLength();
-  password.length = prompt("enter a number to specify the length of the password");
+  password.length = speicfyTheLength();
 // specify the possible characters can be used
   // charactersSatisfied = generateCharactersSatisfied();
 // generate the password of certain length with charactersSatisfied and return it
@@ -28,7 +27,12 @@ function generatePassword() {
 
 // specify the length of password
 function speicfyTheLength() {
-  return 5;
+  var length = prompt("enter a number to specify the length of the password")
+  if (!Number.isInteger(length) || length < 8 || length > 128) {
+    alert("Please enter an integer between 8 to 128!");
+    return speicfyTheLength();
+  }
+  return length;
 }
 
 // specify the possible characters can be used
