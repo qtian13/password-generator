@@ -29,28 +29,28 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Generate password with specified criteria
 function generatePassword() {
   var password = [];
   var charactersSatisfied;
+
 // specify the length of password
   password.length = speicfyTheLength();
 // specify the possible characters can be used
   charactersSatisfied = generateCharactersSatisfied();
-  console.log("charactersSatisfied" + charactersSatisfied);
 // generate the password of certain length with charactersSatisfied and return it
   for (var i = 0; i < password.length; i++) {
-    password[i] = "a";
+    password[i] = randomizeCharacter(charactersSatisfied);
   }
   return password.join('');
 }
 
 // specify the length of password
 function speicfyTheLength() {
-  var length = prompt("enter a number to specify the length of the password")
+  var length = prompt("enter a number to specify the length of the password");
+
   length = parseFloat(length);
   if (!Number.isInteger(length) || length < 8 || length > 128) {
     alert("Please enter an integer between 8 to 128!");
@@ -64,29 +64,40 @@ function speicfyTheLength() {
 function generateCharactersSatisfied() {
   var charactersSatisfied = "";
 
-  custermizeCharType();
-  //iterate the objects in characters, concatenate the string if .selected is true
+  custermizeCharTypeSelect();
+//iterate the objects in characters, concatenate the string if .selected is true
   for (var charType in characters) {
     if (characters[charType].select) {
       charactersSatisfied = charactersSatisfied.concat(characters[charType].chars);
     }
   }
+//reset the choices for privacy protect
+  resetCharTypeSelect();
   return charactersSatisfied;
 }
 
+// custermize character type with confirm()
 function custermizeCharTypeSelect() {
-  // custermize character type with confirm()
   characters.upperCase.select = confirm("Do you want upper case alphabets in your password?");
   characters.lowerCase.select = confirm("Do you want lower case alphabets in your password?");
   characters.number.select = confirm("Do you want numbers in your password?");
   characters.specialCharacter.select = confirm("Do you want special characters in your password?");
+  if (!characters.upperCase.select && !characters.lowerCase.select && !characters.number.select && !characters.specialCharacter.select) {
+    alert("Please choose at least one type!");
+    custermizeCharTypeSelect();
+  }
 }
 
 function resetCharTypeSelect() {
-  characters.upperCase.select = false;
-  characters.lowerCase.select = false;
-  characters.number.select = false;
-  characters.specialCharacter.select = false;
+  for (var charType in characters) {
+    characters[charType].select = false;
+  }
+}
+
+// randomize a character from a given string or char array
+function randomizeCharacter(characters) {
+  var index = Math.floor(Math.random() * characters.length);
+  return characters[index];
 }
 
 
