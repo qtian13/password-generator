@@ -1,7 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 var copyBtn = document.querySelector("#copy");
-var onemoreBtn = document.querySelector("#one-more");
+var moreBtn = document.querySelector("#more");
 var resetBtn = document.querySelector("#reset");
 var reset = true;
 var passwordLength = 0;
@@ -36,7 +36,7 @@ var characters = {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 copyBtn.addEventListener("click", copyPassword);
-onemoreBtn.addEventListener("click", generateMorePassword);
+moreBtn.addEventListener("click", generateMorePassword);
 resetBtn.addEventListener("click", resetCharacters);
 
 // Write password to the #password input
