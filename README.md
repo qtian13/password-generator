@@ -11,14 +11,14 @@ git clone https://github.com/qtian13/password-generator.git
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
 ## Description of the Password Generator
-1. There are  buttons on the page. A password generation button, a copy button, one more button and reset button
-1. When the password generation button is clicked, users start to answer a series of prompted questions about their preference and a password matching the selected criteria would be generated and displayed on the page.
-    * Users have to choose an integer between 8 to 128 inclusive before they continue to customize character type
+1. There are 4 buttons on the page. button generate password , button copy, button more and button reset.
+1. When button generate password is clicked, users start to answer a series of prompted questions about their preference and a password matching the selected criteria would be generated and displayed on the page.
+    * Users have to choose an integer between 8 to 128 inclusive before the next step
     * Users can select one or more characters type from: upper case alphabets, lower case alphabets, numeric characters and special characters
     * Special characters are referenced to [Password Special Characters | OWASP](https://www.owasp.org/index.php/Password_special_characters)
-1. Users can copy the generated password with a copy button click
-1. If users want to create a new password with the same criteria, they can click one more button to achieve it
-1. Users can reset the web page with reset button. The criteria they set would be deleted.
+1. The password generated would be copied to clipboard with a click on button copy
+1. By clicking more button, users will get another password with the same criteria displayed on the web
+1. Users can clear the recorded preference and the displayed password with button reset.
 1. The user interface is screen size responsive
 
 ## Page URL
