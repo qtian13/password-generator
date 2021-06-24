@@ -5,7 +5,7 @@ var onemoreBtn = document.querySelector("#one-more");
 var resetBtn = document.querySelector("#reset");
 var reset = true;
 var passwordLength = 0;
-var characteSet = "";
+var characterSet = "";
 
 var characters = {
   upperCase: {
@@ -48,30 +48,43 @@ function writePassword() {
 }
 
 function copyPassword() {
-  var copyText = document.querySelector("#password");
+  if (reset) {
+    alert("Please generate a password first")
+  } else {
+    var copyText = document.querySelector("#password");
 
-  /* Select the text field */
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); /* For mobile devices */
-
-  /* Copy the text inside the text field */
-  document.execCommand("copy");
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+  
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+  }
 }
 
-function onemorePassword() {
-  function generatePassword() {
+function generateMorePassword() {
+  if (reset) {
+    alert("Please generate a password first")
+  } else {
     var password = [];
-  
-    // specify the length of password
-    password.length = setPasswordLength();
-    // specify the possible characters can be used
-    characteSet = generateCharacterSet();
-    // generate the password of certain length with charactersSatisfied and return it
+    var passwordText = document.querySelector("#password");
+    password.length = passwordLength;
+
     for (var i = 0; i < password.length; i++) {
-      password[i] = randomizeCharacter(characteSet);
+      password[i] = randomizeCharacter(characterSet);
     }
-    return password.join('');
+    passwordText.value = password.join('');
   }
+}
+
+function resetCharacters() {
+  var passwordText = document.querySelector("#password");
+  passwordText.value = "";
+  reset = true;
+  passwordLength = 0;
+  characterSet = "";
+  resetCharType();
+
 }
 
 
@@ -79,14 +92,15 @@ function onemorePassword() {
 function generatePassword() {
   var password = [];
   // specify the length of password
+  reset = false;
   password.length = setPasswordLength();
   passwordLength = password.length;
   // specify the possible characters can be used
-  characteSet = generateCharacterSet();
+  characterSet = generateCharacterSet();
 
   // generate the password of certain length with charactersSatisfied and return it
   for (var i = 0; i < password.length; i++) {
-    password[i] = randomizeCharacter(characteSet);
+    password[i] = randomizeCharacter(characterSet);
   }
   return password.join('');
 }
@@ -105,7 +119,7 @@ function setPasswordLength() {
 
 // specify the possible characters can be used
 function generateCharacterSet() {
-  var characterSet = "";
+  characterSet = "";
 
   custermizeCharType();
 //iterate the objects in characters, concatenate the string if .select is true
@@ -114,8 +128,6 @@ function generateCharacterSet() {
       characterSet = characterSet.concat(characters[charType].chars);
     }
   }
-//reset the choices for privacy protect
-  resetCharType();
   return characterSet;
 }
 
