@@ -63,6 +63,8 @@ function speicfyTheLength() {
 // specify the possible characters can be used
 function generateCharactersSatisfied() {
   var charactersSatisfied = "";
+
+  custermizeCharType();
   //iterate the objects in characters, concatenate the string if .selected is true
   for (var charType in characters) {
     if (characters[charType].select) {
@@ -70,6 +72,21 @@ function generateCharactersSatisfied() {
     }
   }
   return charactersSatisfied;
+}
+
+function custermizeCharTypeSelect() {
+  // custermize character type with confirm()
+  characters.upperCase.select = confirm("Do you want upper case alphabets in your password?");
+  characters.lowerCase.select = confirm("Do you want lower case alphabets in your password?");
+  characters.number.select = confirm("Do you want numbers in your password?");
+  characters.specialCharacter.select = confirm("Do you want special characters in your password?");
+}
+
+function resetCharTypeSelect() {
+  characters.upperCase.select = false;
+  characters.lowerCase.select = false;
+  characters.number.select = false;
+  characters.specialCharacter.select = false;
 }
 
 
