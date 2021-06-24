@@ -1,6 +1,5 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
 var characters = {
   upperCase: {
     select: false,
@@ -22,15 +21,13 @@ var characters = {
 
   specialCharacter: {
     select: false,
-    chars: "!@#$%^&*()[]{}-=_+`~\/\\,.\'\":;|?",
+    chars: " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~",
     phrase: "special characters",
   },
 }
 
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
 
 // Write password to the #password input
 function writePassword() {
@@ -87,7 +84,7 @@ function generateCharacterSet() {
 // custermize character type with confirm()
 function custermizeCharType() {
   for (var charType in characters) {
-    characters[charType].select = confirm("Do you want" + characters[charType].phrase + "in your password?");
+    characters[charType].select = confirm("Do you want " + characters[charType].phrase + " in your password?");
   }
 
   if (!characters.upperCase.select && !characters.lowerCase.select && !characters.number.select && !characters.specialCharacter.select) {
