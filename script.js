@@ -1,5 +1,12 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var copyBtn = document.querySelector("#copy");
+var onemoreBtn = document.querySelector("#one-more");
+var resetBtn = document.querySelector("#reset");
+var reset = true;
+var passwordLength = 0;
+var characteSet = "";
+
 var characters = {
   upperCase: {
     select: false,
@@ -28,6 +35,9 @@ var characters = {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+copyBtn.addEventListener("click", copyPassword);
+onemoreBtn.addEventListener("click", generateMorePassword);
+resetBtn.addEventListener("click", resetCharacters);
 
 // Write password to the #password input
 function writePassword() {
@@ -37,15 +47,43 @@ function writePassword() {
   passwordText.value = password;
 }
 
+function copyPassword() {
+  var copyText = document.querySelector("#password");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+}
+
+function onemorePassword() {
+  function generatePassword() {
+    var password = [];
+  
+    // specify the length of password
+    password.length = setPasswordLength();
+    // specify the possible characters can be used
+    characteSet = generateCharacterSet();
+    // generate the password of certain length with charactersSatisfied and return it
+    for (var i = 0; i < password.length; i++) {
+      password[i] = randomizeCharacter(characteSet);
+    }
+    return password.join('');
+  }
+}
+
+
 // Generate password with specified criteria
 function generatePassword() {
   var password = [];
-  var characteSet;
-
   // specify the length of password
   password.length = setPasswordLength();
+  passwordLength = password.length;
   // specify the possible characters can be used
   characteSet = generateCharacterSet();
+
   // generate the password of certain length with charactersSatisfied and return it
   for (var i = 0; i < password.length; i++) {
     password[i] = randomizeCharacter(characteSet);
