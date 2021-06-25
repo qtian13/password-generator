@@ -15,7 +15,7 @@ git clone https://github.com/qtian13/password-generator.git
 1. When `Generate Password` is clicked, users start to answer a series of prompted questions about their preference and a password matching the selected criteria would be generated and displayed on the page.
     * Users have to choose an integer between 8 to 128 inclusive before the next step
     * Users can select one or more characters type from: upper case alphabets, lower case alphabets, numeric characters and special characters
-    * Special characters are referenced to [Password Special Characters | OWASP](https://www.owasp.org/index.php/Password_special_characters)
+    * This application refers to [Password Special Characters | OWASP](https://www.owasp.org/index.php/Password_special_characters) for special characters
 1. The password generated would be copied to clipboard with a click on `Copy`.
 1. By clicking `More`, users will get another password with the same criteria displayed on the web.
 1. Users can clear the recorded preference and the displayed password with `Reset`.
