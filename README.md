@@ -1,4 +1,7 @@
 # password-generator
+
+[![license](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 This project is to create an attractive and functional password generator application. Users can generate random passwords based on criteria that they’ve selected.
 
 ## Getting Started
@@ -31,7 +34,7 @@ https://qtian13.github.io/password-generator/
 
 ## Author
 Qiushuang Tian
-- [Link to Portfolio Site](https://qtian13.github.io/)
+- [Link to Portfolio Site](https://qtian13.github.io/portfolioUpdate/)
 - [Link to Github](https://github.com/qtian13)
 - [Link to LinkedIn](https://www.linkedin.com/in/qiushuang-tian-a9754248/)
 
